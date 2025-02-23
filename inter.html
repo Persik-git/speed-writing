@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тест скорости печати</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,400&display=swap" rel="stylesheet">
-
-
-
-
-
-
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тест скорости печати</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Здесь вы можете пройти тест на скорость печати:</h1>
-
-
-
-  
+  <table class="styled-table">
+    <tr>
+      <td>
+        <h1>Проверьте свою скорость печати!</h1>  
+        <button class= "start-button"  // создал тут класс кнопки 
+         onclick = "let textContainer = document.getElementById('text-container'); // Вместо queryselecotr взял getelementby id, 
+         // потому что снизу указал заранее id для текст контейнера. Далее делаю, чтобы после нажатия кнопки НАЧАТЬ появлялся текст
+        textContainer.style.display = 'block';"> 
+        НАЧАТЬ! 
+        </button> 
+      </td>
+    </tr>
+  </table>
+  <div class="text-container" id="text-container">
+    <p>Детская литература включает сказки, басни, стихи и рассказы. 
+        Она помогает детям узнавать мир и развивать воображение.</p>
+  </div>
 </body>
+</html>
