@@ -1,11 +1,72 @@
-h1 {
-    color: #a9cc94;
+.styled-table {
+    width: 60%;
+    margin: 50px auto;
+    border-collapse: collapse;
+    background: rgba(61, 90, 128, 0.1); /* фон */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* тень для глубины */
+    padding: 20px;
     text-align: center;
-    font-size: 35px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 600; 
-    margin-bottom: 20px; 
-    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #969696, 0 0 40px #ffffff;
-    letter-spacing: 1px;
-    }
- 
+}
+
+.styled-table td {
+    padding: 20px;
+    border: 2px solid rgba(64, 163, 255, 0.2); /* полупрозрачные границы */
+}
+
+/* стиль для h1 */
+h1 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 42px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-shadow: 
+        0px 0px 8px rgba(95, 163, 123, 0.8), 
+        0px 0px 16px rgba(0, 110, 255, 0.9), 
+        0px 0px 32px rgba(255, 255, 255, 1);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #2d2d42, #2f3d4d);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* стиль для кнопки "начать!" */
+.start-button {
+    margin-top: 20px;
+    font-size: 24px;
+    font-family: 'Oswald', sans-serif;
+    color: #ffffff;
+    background: linear-gradient(90deg, #2d2d42, #2f3d4d); /* такой же градиент */
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+/* эффект при наведении */
+.start-button:hover {
+    background: linear-gradient(90deg, #2f3d4d, #2d2d42);
+    transform: scale(1.1);
+}
+
+/* стиль для блока с текстом */
+.text-container {
+    display: none;
+    margin: 20px auto;
+    width: 60%;
+    font-size: 20px;
+    font-family: monospace;
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 1.6;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
