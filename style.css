@@ -8,6 +8,7 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* тень для глубины */
     padding: 20px;
     text-align: center;
+    background-color: rgba(173, 74, 74, 0.144)
 }
 
 .styled-table td {
@@ -15,8 +16,15 @@
     border: 2px solid rgba(64, 163, 255, 0.2); /* полупрозрачные границы */
 }
 
+body {
+    background-color: #e2e2ff;
+    background: linear-gradient(90deg, #c98383, #d0d0ff);
+    color: rgb(236, 233, 255);
+}
+
 /* стиль для h1 */
 h1 {
+    
     color: #ffffff;
     text-align: center;
     font-size: 42px;
@@ -69,4 +77,5 @@ h1 {
     border-radius: 10px;
     line-height: 1.6;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    color: black;
 }
