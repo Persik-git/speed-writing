@@ -73,9 +73,55 @@ h1 {
     font-size: 20px;
     font-family: monospace;
     background: #f4f4f4;
-    padding: 20px;
+    padding: 20px;  
     border-radius: 10px;
     line-height: 1.6;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     color: black;
 }
+
+.time1{
+    margin: 20px auto;
+    width: 60%;
+    font-size: 20px;
+    font-family: monospace;
+    background: #dddcf5;
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 1.6;
+    box-shadow: 8px 8px 20px #afff6480;
+    background: linear-gradient(90deg, #16ad99, #07aa50);
+    color: black;
+}
+
+
+.time2 { 
+    margin: 20px auto;
+    width: 60%;
+    font-size: 20px;
+    font-family: monospace;
+    background: #dddcf5;
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 1.6;
+    box-shadow: 8px 8px 20px rgba(255, 0, 0, 0.5);
+    background: linear-gradient(90deg, #ff616e, #ff60b7);
+    color: black;
+}
+
+
+.mistakes{
+    margin: 20px auto;
+    width: 60%;
+    font-size: 20px;
+    font-family: monospace;
+    background: #dddcf5;
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 1.6;
+    box-shadow: 8px 8px 20px rgba(25, 0, 255, 0.5);
+    background: linear-gradient(90deg, #7690c9, #244c80);
+    color: black;
+}
+
+
