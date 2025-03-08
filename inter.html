@@ -1,38 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Тест скорости печати</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест скорости печати</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <script src='script.js'></script>
-  <table class="styled-table">
-    <tr>
-      <td>
-        <h1>Проверьте свою скорость печати!</h1>  
-        <button class= "start-button"  // создал тут класс кнопки 
-         onclick = "let textContainer = document.getElementById('text-container'); // Вместо queryselector взял getelementby id, 
-         // потому что снизу указал заранее id для текст контейнера. Далее делаю, чтобы после нажатия кнопки НАЧАТЬ появлялся текст
-        textContainer.style.display = 'block';"> 
-        НАЧАТЬ! 
-        </button> 
-      </td>
-    </tr>
-  </table>
-  <div class="text-container" id="text-container">
-    <p>Сегодня солнечный день. Я вышел на улицу и увидел множество людей. 
-      Дети играют в парке, а взрослые гуляют с собаками. 
-      В воздухе пахнет свежими цветами. Люди улыбаются и общаются друг с другом.
-       Вдалеке слышен смех и радостные крики. 
-       Птицы поют, а ветер нежно колышет листья деревьев. </p>
-  </div>
-  <div class="test-result">
-    <p class="time1">Вы прошли тест за (time) секунд , поздравляем!</p>
-    <p class="time2">Вы не прошли тест за минуту , ваше время (time) секунд, попробуйте ещё раз </p>
-    <p class="mistakes">Вы не прошли тест , вы сделали (mistakes), попробуйте ещё раз</p>
-  </div>
+
+    <table class="styled-table">
+        <tr>
+            <td>
+                <h1>Проверьте свою скорость печати!</h1>
+                <div class="button-wrapper">
+                    <p id="timer-display">60</p> <!-- Таймер (слева) -->
+                    <button class="start-button">НАЧАТЬ!</button> <!-- Кнопка (по центру) -->
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div class="text-container" id="text-container">
+        <p>Сегодня солнечный день. Я вышел на улицу и увидел множество людей. 
+        Дети играют в парке, а взрослые гуляют с собаками. 
+        В воздухе пахнет свежими цветами. Люди улыбаются и общаются друг с другом.
+        Вдалеке слышен смех и радостные крики. 
+        Птицы поют, а ветер нежно колышет листья деревьев.</p>
+    </div>
+
+    <div class="test-result">
+        <p class="time1">Вы прошли тест за (time) секунд, поздравляем!</p>
+        <p class="time2">Вы не прошли тест за минуту, ваше время (time) секунд, попробуйте ещё раз</p>
+        <p class="mistakes">Вы не прошли тест, вы сделали (mistakes), попробуйте ещё раз</p>
+    </div>
+
+    <script src="script.js"></script> <!-- Подключение скрипта -->
 </body>
 </html>
