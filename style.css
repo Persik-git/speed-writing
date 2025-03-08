@@ -45,13 +45,17 @@ h1 {
 /* стиль для кнопки "начать!" */
 .start-button {
     margin-top: 20px;
-    font-size: 24px;
+    font-size: 30px;
     font-family: 'Oswald', sans-serif;
     color: #ffffff;
     background: linear-gradient(90deg, #2d2d42, #2f3d4d); /* такой же градиент */
     border: none;
     padding: 12px 30px;
     border-radius: 10px;
+    text-shadow: 
+    0px 0px 8px rgba(95, 163, 123, 0.8), 
+    0px 0px 16px rgba(0, 110, 255, 0.9), 
+    0px 0px 32px rgba(255, 255, 255, 1);
     cursor: pointer;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     text-transform: uppercase;
@@ -119,9 +123,37 @@ h1 {
     padding: 20px;
     border-radius: 10px;
     line-height: 1.6;
-    box-shadow: 8px 8px 20px rgba(25, 0, 255, 0.5);
+    box-shadow: 8px 8px 20px rgba(15, 133, 243, 0.5);
     background: linear-gradient(90deg, #7690c9, #244c80);
     color: black;
 }
 
 
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#timer-display {
+    font-size: 28px;
+    font-family: 'Oswald', sans-serif; /* Такой же шрифт, как у кнопки */
+    font-weight: 400; /* Тонкий стиль */
+    color: white;
+    text-align: center;
+    background: linear-gradient(90deg, #2d2d42, #2f3d4d);
+    padding: 15px 30px;
+    border-radius: 15px;
+    display: block; /* Размещаем под кнопкой */
+    text-shadow: 
+    0px 0px 8px rgba(95, 163, 123, 0.8), 
+    0px 0px 16px rgba(0, 110, 255, 0.9), 
+    0px 0px 32px rgba(255, 255, 255, 1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    margin: 15px auto 0; /* Отступ сверху для расстояния от кнопки */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    width: fit-content; /* Ширина по содержимому */
+}
