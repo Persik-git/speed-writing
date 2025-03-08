@@ -1,10 +1,28 @@
-let test_mistakes = document.querySelector('.mistakes')
-let test_time = document.querySelector('.time')
-let test_result = document.querySelector('.test-result')
-let start_test = document.querySelector('.start-button')
-let test_result_letters = document.querySelector('.letters')
+let timeLeft = 60;
+let timer;
 
-function start_test() {
+function startTimer() {
+    clearInterval(timer); 
+    timeLeft = 60;
+    updateDisplay();
 
+    timer = setInterval(function () {
+        timeLeft--;
+        updateDisplay();
+
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            alert("Время вышло!");
+        }
+    }, 1000);
 }
 
+function updateDisplay() {
+    document.getElementById("timer-display").textContent = "Осталось: " + timeLeft + " сек.";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    let button = document.querySelector(".start-button");
+    button.insertAdjacentHTML("afterend", '<p id="timer-display">Осталось: 60 сек.</p>');
+    button.addEventListener("click", startTimer);
+});
