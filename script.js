@@ -1,14 +1,19 @@
 let timeLeft = 60;
 let timer;
+let timerDisplay = document.getElementById("timer-display"); 
+let textContainer = document.getElementById("text-container"); 
+let startButton = document.querySelector(".start-button");
 
 function startTimer() {
-    clearInterval(timer); 
     timeLeft = 60;
-    updateDisplay();
+    timerDisplay.textContent = timeLeft; 
+    clearInterval(timer);
 
-    timer = setInterval(function () {
+    textContainer.style.display = "block"; // Показываем текст после нажатия кнопки
+
+    timer = setInterval(() => {
         timeLeft--;
-        updateDisplay();
+        timerDisplay.textContent = timeLeft;
 
         if (timeLeft <= 0) {
             clearInterval(timer);
@@ -17,12 +22,4 @@ function startTimer() {
     }, 1000);
 }
 
-function updateDisplay() {
-    document.getElementById("timer-display").textContent = "Осталось: " + timeLeft + " сек.";
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    let button = document.querySelector(".start-button");
-    button.insertAdjacentHTML("afterend", '<p id="timer-display">Осталось: 60 сек.</p>');
-    button.addEventListener("click", startTimer);
-});
+startButton.addEventListener("click", startTimer);
