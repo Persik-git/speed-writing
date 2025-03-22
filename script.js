@@ -4,10 +4,8 @@ let timer = table.querySelector('.timer')
 
 let textContainer = document.querySelector('.text-container')
 let text = textContainer.querySelector('p').innerHTML
+let textUser = textContainer.querySelector('input').value
 
-//let textTrue = new Array()
-//text.split()
-//console.log(textTrue.length)
 
 startButton.addEventListener('click', function(){
     timer.style.display = 'flex'
@@ -39,3 +37,22 @@ function startTimer() {
         }
     }, 1000); // Обновляем каждую секунду
 }
+
+let textTrue = new Array()
+textTrue = text.split('')
+
+let textCheck = new Array()
+textCheck = textUser.split('')
+
+let mistake = 0
+
+for(i=0; i<textTrue.length; i++){
+    if(textTrue[i] == textCheck[i]){
+        textTrue[i].style.color = 'red'
+        mistake++
+    }
+}
+
+//if(mistake == 0){
+    
+//}
