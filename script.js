@@ -2,6 +2,12 @@ let table = document.querySelector('.styled-table')
 let startButton = table.querySelector('.start-button')
 let timer = table.querySelector('.timer')
 
+let results = document.querySelector('.test-result')
+
+let time1 = results.querySelector('.time1')
+let time2 = results.querySelector('.time2')
+let mistakes = results.querySelector('.mistakes')
+
 let textContainer = document.querySelector('.text-container')
 let text = textContainer.querySelector('p').innerHTML
 let textUser = textContainer.querySelector('input').value
@@ -11,7 +17,9 @@ startButton.addEventListener('click', function(){
     timer.style.display = 'flex'
     textContainer.style.display = 'flex'
     startCountdown()
-    startTimer()
+    startTimer()   
+    
+
 })
 
 // Функция для начала отсчета
@@ -26,6 +34,7 @@ function startCountdown() {
 
 // Функция для 60-секундного таймера
 function startTimer() {
+    check()
     let seconds = 60; 
     const interval = setInterval(() => {
         timer.textContent = "Осталось "+ seconds+" секунд"; // Обновляем отображение времени
@@ -46,13 +55,19 @@ textCheck = textUser.split('')
 
 let mistake = 0
 
+function check(){
 for(i=0; i<textTrue.length; i++){
     if(textTrue[i] == textCheck[i]){
         textTrue[i].style.color = 'red'
         mistake++
+        
     }
 }
+result(mistake)
+}
 
-//if(mistake == 0){
-    
-//}
+function result(mistake){
+if(mistake == 0){
+    time1.style.display = 'flex'
+}
+}
