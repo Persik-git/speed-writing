@@ -1,73 +1,107 @@
-let table = document.querySelector('.styled-table')
-let startButton = table.querySelector('.start-button')
-let timer = table.querySelector('.timer')
+let table = document.querySelector('.styled-table');
+let startButton = table.querySelector('.start-button');
+let timer = table.querySelector('.timer');
 
-let results = document.querySelector('.test-result')
+let results = document.querySelector('.test-result');
+let time1 = results.querySelector('.time1');
+let time2 = results.querySelector('.time2');
+let mistakesBlock = results.querySelector('.mistakes');
 
-let time1 = results.querySelector('.time1')
-let time2 = results.querySelector('.time2')
-let mistakes = results.querySelector('.mistakes')
+let textContainer = document.querySelector('.text-container');
+let textElement = textContainer.querySelector('.text');
+let input = textContainer.querySelector('input');
 
-let textContainer = document.querySelector('.text-container')
-let text = textContainer.querySelector('p').innerHTML
-let textUser = textContainer.querySelector('input').value
+let originalText = textElement.textContent.trim();
+let originalChars = originalText.split("");
 
+let mistakeCount = 0;
+let interval = null;
 
-startButton.addEventListener('click', function(){
-    timer.style.display = 'flex'
-    textContainer.style.display = 'flex'
-    startCountdown()
-    startTimer()   
-    
-
-})
-
-// Функция для начала отсчета
-function startCountdown() {
-    timer.innerHTML = "Успей подготовиться!";
-    // Запускаем обратный отсчет на 3 секунды
-    setTimeout(() => {
-        timer.textContent = ""; // Очищаем сообщение
-    }, 30000); // Задержка в 3000 миллисекунд (3 секунды)
-    startTimer(); // Запускаем таймер на 60 секунд
+function renderText() {
+    textElement.innerHTML = '';
+    originalChars.forEach(char => {
+        const span = document.createElement('span');
+        span.textContent = char;
+        textElement.appendChild(span);
+    });
 }
 
-// Функция для 60-секундного таймера
-function startTimer() {
-    check()
-    let seconds = 60; 
-    const interval = setInterval(() => {
-        timer.textContent = "Осталось "+ seconds+" секунд"; // Обновляем отображение времени
-        seconds--; // Уменьшаем количество оставшихся секунд
-        // Если время закончилось, останавливаем таймер и показываем сообщение
-        if (seconds < 0) {
-            clearInterval(interval); // Останавливаем интервал
-            timer.textContent = "Ты не успел!"; // Показываем сообщение о том, что время истекло
+startButton.addEventListener('click', () => {
+    results.style.display = 'none';
+    timer.style.display = 'flex';
+    textContainer.style.display = 'flex';
+    input.value = '';
+    input.disabled = false;
+    input.focus();
+    renderText();
+    countdownBeforeStart();
+});
+
+function countdownBeforeStart() {
+    let countdown = 3;
+    timer.textContent = `Подготовьтесь: ${countdown}`;
+    let countInterval = setInterval(() => {
+        countdown--;
+        if (countdown > 0) {
+            timer.textContent = `Подготовьтесь: ${countdown}`;
+        } else {
+            clearInterval(countInterval);
+            startTest();
         }
-    }, 1000); // Обновляем каждую секунду
+    }, 1000);
 }
 
-let textTrue = new Array()
-textTrue = text.split('')
+function startTest() {
+    let seconds = 60;
+    timer.textContent = `Осталось: ${seconds} секунд`;
 
-let textCheck = new Array()
-textCheck = textUser.split('')
+    interval = setInterval(() => {
+        seconds--;
+        if (seconds >= 0) {
+            timer.textContent = `Осталось: ${seconds} секунд`;
+        } else {
+            clearInterval(interval);
+            finishTest();
+        }
+    }, 1000);
+}
 
-let mistake = 0
+input.addEventListener('input', () => {
+    const userInput = input.value;
+    const spans = textElement.querySelectorAll('span');
+    mistakeCount = 0;
 
-function check(){
-for(i=0; i<textTrue.length; i++){
-    if(textTrue[i] == textCheck[i]){
-        textTrue[i].style.color = 'red'
-        mistake++
-        
+    spans.forEach((span, index) => {
+        if (index < userInput.length) {
+            if (userInput[index] === originalChars[index]) {
+                span.style.color = 'green';
+            } else {
+                span.style.color = 'red';
+                mistakeCount++;
+            }
+        } else {
+            span.style.color = 'black';
+        }
+    });
+});
+
+function finishTest() {
+    input.disabled = true;
+
+    if (input.value === originalText) {
+        time1.style.display = 'block';
+        time2.style.display = 'none';
+        mistakesBlock.style.display = 'none';
+    } else if (mistakeCount > 0) {
+        time1.style.display = 'none';
+        time2.style.display = 'none';
+        mistakesBlock.textContent = `Вы не прошли тест, вы сделали ${mistakeCount} ошибк(и), попробуйте ещё раз.`;
+        mistakesBlock.style.display = 'block';
+    } else {
+        time1.style.display = 'none';
+        mistakesBlock.style.display = 'none';
+        time2.style.display = 'block';
     }
-}
-result(mistake)
-}
 
-function result(mistake){
-if(mistake == 0){
-    time1.style.display = 'flex'
-}
+    results.style.display = 'block';
 }
